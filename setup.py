@@ -10,7 +10,7 @@ if os.path.isfile(requirement_path):
 
 setup(
     name='mypackage',
-    version='0.1.1',
+    version='0.1.2',
     packages=find_packages(where="src"), # packages=["src"],
     package_dir={"": "src"},
     # install_requires=[
