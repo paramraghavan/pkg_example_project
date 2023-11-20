@@ -95,3 +95,9 @@ bumpversion patch  # for a patch version bump, e.g., 0.1.0 to 0.1.1
 import mypackage
 dir(mypackage)
 ```
+
+## Install with pipenv with a version
+```bash
+pipenv install -e  git+ssh://git@github.com:paramraghavan/pkg_example_project.git@v0.1.2#egg=mypackage
+pipenv install -e  git+https://git@github.com:paramraghavan/pkg_example_project.git@v0.1.1#egg=mypackage
+'''
