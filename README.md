@@ -98,6 +98,7 @@ dir(mypackage)
 
 ## Install with pipenv with a version
 ```bash
+# pipenv install -e  git+ssh://git@github.com:username/pkg_example_project.git#egg=mypackage
 pipenv install -e  git+ssh://git@github.com:paramraghavan/pkg_example_project.git@v0.1.2#egg=mypackage
 pipenv install -e  git+https://git@github.com:paramraghavan/pkg_example_project.git@v0.1.1#egg=mypackage
 ```
@@ -116,4 +117,15 @@ Add the following to your file ~/.gitconfig
 
 Use the following line to import mypackage
 mypackage = {editable = true,git = "https://github.com/paramraghavan/pkg_example_project.git",ref = "v0.1.2"}    
+```
+
+## pipenv can access it
+SSH Agent: Ensure that your SSH key is loaded in the SSH agent and that pipenv can access it.
+Sometimes, pipenv might not be able to access the SSH agent properly, especially in some IDEs or GUI applications.
+- You can add your SSH key to the SSH agent with:
+```shell
+ssh-add ~/.ssh/your_ssh_key
+
+# Verify that the key is added:
+ssh-add -l
 ```
