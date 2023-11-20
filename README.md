@@ -61,7 +61,20 @@ replace = __version__ = '{new_version}'
   - Automatically commit the version bump to Git and tag the commit.
   - Update the version number in both setup.py and __init__.py of your package.
 ## Bumping Version 
-- Whenever you want to update the version, you can now run bumpversion with the specific part of the version you want to update (major, minor, or patch):
+- Make sure all the code changes are checked in before you run the bumpversion script
+```shell
+# check the status of your repository to see what changes are currently uncommitted.
+git status
+#  Commit or Stash Your Changes
+git stash
+# After running bumpversion, you can reapply the stashed changes with git stash pop.
+git stash pop
+```
+- The shell script bumpversion.sh at the project root and is used to increment the version of mypackage.
+The script takes 1 parameter, which is the version type you want to increment (major, minor, patch).
+The script will increment the version, change setup.py and setup.cfg, create a commit, create a tag, 
+and push them all to origin.
+
 ```shell
 bumpversion patch  # for a patch version bump, e.g., 0.1.0 to 0.1.1
 
