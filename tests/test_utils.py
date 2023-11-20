@@ -24,10 +24,10 @@ def test_printStackTrace():
 Error connecting postgres database:
 --------------------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/Users/paramraghavan/PycharmProjects/pkg_example_project/tests/test_utils.py", line 7, in test_printStackTrace
+  File "pkg_example_project/tests/test_utils.py", line 7, in test_printStackTrace
     conn_postgresql = psycopg2.connect(database="abc123", user="abc123", password="abc123", host="127.0.0.1",
                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/paramraghavan/PycharmProjects/pkg_example_project/venv/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+  File "pkg_example_project/venv/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
     conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
@@ -35,8 +35,9 @@ psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed
 
 --------------------------------------------------------------------------------"""
 
-        message = printStackTrace('Error connecting postgres database')
+        actual_message = printStackTrace('Error connecting postgres database')
+        actual_message_neuter = actual_message.replace('/Users/paramraghavan/dev/github/', '')
         if conn_postgresql:
             conn_postgresql.close()
-        assert(original_error_msg == message)
+        assert(original_error_msg == actual_message_neuter)
 

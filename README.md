@@ -1,5 +1,10 @@
 # Steps to build the package
 - pip install setuptools wheel
+> virtualenv venv
+> venv\Scripts\activate
+> on mac-os: source ./venv/bin/activate
+> install all your packages(
+>> pip install -r requirements.txt 
 ## Create the whl file
 - python setup.py sdist bdist_wheel
 - After running the above command, you should find your .whl file in the dist/ directory.
@@ -65,6 +70,8 @@ bumpversion patch  # for a patch version bump, e.g., 0.1.0 to 0.1.1
 # Commit these changes to your Git repository (if commit is set to True).
 # Optionally, create a Git tag (if tag is set to True).
 ```
+- you can run the script bumpversion.sh, to bump the version and add tag in git repo
+- chmod 755 bumpversion.sh
 
 ## Adding another module, utils to the package
 - pip install psycopg2-binary
