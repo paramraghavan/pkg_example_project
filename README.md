@@ -100,4 +100,20 @@ dir(mypackage)
 ```bash
 pipenv install -e  git+ssh://git@github.com:paramraghavan/pkg_example_project.git@v0.1.2#egg=mypackage
 pipenv install -e  git+https://git@github.com:paramraghavan/pkg_example_project.git@v0.1.1#egg=mypackage
-'''
+```
+
+## Using mypackage in Projects
+If the build server uses “https://github.com" and our dev pc’s  use “ssh://git@github.com”
+
+So instead of changing the url in the Pip file:
+- **From** mypackage = {editable = true,git = "https://github.com/paramraghavan/pkg_example_project.git",ref = "v0.1.2"}
+- **To** → mypackage = {editable = true,git = "git@github.com:paramraghavan/pkg_example_project.git",ref = "v0.1.2"}
+
+Add the following to your file ~/.gitconfig
+```
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+
+Use the following line to import mypackage
+mypackage = {editable = true,git = "https://github.com/paramraghavan/pkg_example_project.git",ref = "v0.1.2"}    
+```
